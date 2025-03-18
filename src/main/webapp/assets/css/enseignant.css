@@ -1,0 +1,352 @@
+/* Variables */
+:root {
+    --primary-color: #ff6b4a;
+    --primary-light: #ffeae5;
+    --accent-color: #4361ee;
+    --success-color: #56ca7b;
+    --warning-color: #ffc75f;
+    --danger-color: #ff5a5f;
+    --text-dark: #212529;
+    --text-muted: #6c757d;
+    --text-light: #f8f9fa;
+    --bg-color: #ffeae5;
+    --card-radius: 12px;
+    --sidebar-width: 250px;
+    --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Reset et base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    display: flex;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+}
+
+/* Sidebar */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: white;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar-logo {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.sidebar-logo img {
+    margin-right: 10px;
+}
+
+.sidebar-nav {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sidebar-nav a {
+    color: var(--text-dark);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.sidebar-nav a.active {
+    background-color: rgba(255, 107, 74, 0.15);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.sidebar-nav a:hover {
+    background-color: rgba(255, 107, 74, 0.1);
+    color: var(--primary-color);
+}
+
+.sidebar-nav a i {
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.sidebar-user {
+    margin-top: auto;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: var(--card-radius);
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-user-avatar {
+    flex-shrink: 0;
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.sidebar-user-info {
+    margin-left: 12px;
+    flex-grow: 1;
+}
+
+.sidebar-user-info span {
+    color: var(--text-dark);
+    font-weight: 600;
+    display: block;
+    font-size: 0.9rem;
+}
+
+.sidebar-user-info small {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.btn-logout {
+    background-color: transparent;
+    color: var(--danger-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    width: 36px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.btn-logout:hover {
+    background-color: rgba(255, 90, 95, 0.1);
+}
+
+/* Contenu principal */
+.content {
+    margin-left: var(--sidebar-width);
+    width: calc(100% - var(--sidebar-width));
+    padding: 25px;
+}
+
+.top-bar {
+    background-color: white;
+    border-radius: var(--card-radius);
+    padding: 20px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--card-shadow);
+}
+
+.welcome-text {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.user-email {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin-top: 3px;
+}
+
+.date {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+/* Cartes du tableau de bord */
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.card {
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.card-blue {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #5a7af9 100%);
+    color: white;
+}
+
+.card-green {
+    background: linear-gradient(135deg, var(--success-color) 0%, #7cd991 100%);
+    color: white;
+}
+
+.card-content {
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-content h3 {
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+.card-content small {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.card-content i {
+    font-size: 3rem;
+    opacity: 0.3;
+}
+
+/* Section événements et profil */
+.events-profile-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+}
+
+.events-container {
+    background-color: white;
+    padding: 25px;
+}
+
+.events-container h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+}
+
+.events-list {
+    list-style: none;
+}
+
+.events-list li {
+    padding: 15px;
+    border-bottom: 1px solid #f1f3f5;
+    display: flex;
+    align-items: center;
+}
+
+.events-list li:last-child {
+    border-bottom: none;
+}
+
+.events-list li strong {
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 6px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.profile-card {
+    background-color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+.profile-card .profile-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    font-size: 2rem;
+}
+
+.profile-card h4 {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.profile-card p {
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    :root {
+        --sidebar-width: 70px;
+    }
+    
+    .sidebar-logo span, 
+    .sidebar-nav a span,
+    .sidebar-user-info {
+        display: none;
+    }
+    
+    .sidebar-nav a {
+        justify-content: center;
+    }
+    
+    .sidebar-nav a i {
+        margin-right: 0;
+    }
+    
+    .sidebar-user {
+        justify-content: center;
+    }
+    
+    .dashboard-cards,
+    .events-profile-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.content > * {
+    animation: fadeIn 0.3s ease-out;
+}
